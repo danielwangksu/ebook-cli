@@ -106,7 +106,7 @@ class Batch(object):
 
                 try:
                     if self.destination:
-                        file = self.destination + '/' + origional_name
+                        file = os.path.join(self.destination, origional_name)
                         print(file)
                         print(new_name_path)
                     if os.path.exists(new_name_path):
@@ -116,6 +116,7 @@ class Batch(object):
                 except OSError:
                     print("  -- Error renaming file...")
                     self.errors += 1
+                else:
                 self.renamed += 1
             print("============================\n")
 
